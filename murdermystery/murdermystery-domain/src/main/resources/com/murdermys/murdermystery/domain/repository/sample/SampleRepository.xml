@@ -5,6 +5,18 @@
 
 <mapper namespace="com.murdermys.murdermystery.domain.repository.sample.SampleRepository">
 
+
+
+    <select id="findOneBy" resultType="String">
+    <![CDATA[
+        SELECT
+			name
+        FROM
+            todo
+    ]]>
+    </select>
+
+
 <!--
 
     <resultMap id="todoResultMap" type="Todo">
