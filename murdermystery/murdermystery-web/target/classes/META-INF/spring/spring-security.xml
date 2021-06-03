@@ -11,16 +11,23 @@
     <sec:http>
         <sec:form-login
         	login-page="/login/loginForm"
-        	login-processing-url="/login"  /> <!-- (1)(2) -->
+        	login-processing-url="/authentication"  /> <!-- (1)(2) -->
     	<sec:intercept-url pattern="/login/**" access="permitAll"/>  <!-- (3) -->
     	<sec:intercept-url pattern="/**" access="isAuthenticated()"/> <!-- (4) -->
-        <sec:logout/>
+        <sec:logout
+            logout-success-url="/"
+            delete-cookies="JSESSIONID" />
         <sec:access-denied-handler ref="accessDeniedHandler"/>
         <sec:custom-filter ref="userIdMDCPutFilter" after="ANONYMOUS_FILTER"/>
         <sec:session-management />
     </sec:http>
 
-    <sec:authentication-manager />
+    <sec:authentication-manager>
+        <!-- com.example.security.domain.service.userdetails.SampleUserDetailsService
+          is scanned by component scan with @Service -->
+        <!-- (4) -->
+        <sec:authentication-provider user-service-ref="sampleUserDetailsService" />
+    </sec:authentication-manager>
 
     <!-- CSRF Protection -->
     <bean id="accessDeniedHandler"
@@ -53,6 +60,8 @@
             </bean>
         </constructor-arg>
     </bean>
+
+
 
     <!-- Put UserID into MDC -->
     <bean id="userIdMDCPutFilter" class="org.terasoluna.gfw.security.web.logging.UserIdMDCPutFilter">
