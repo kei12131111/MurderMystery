@@ -9,24 +9,12 @@
 </head>
 <body>
     <div id="wrapper">
-        <h1 id="title">Hello world!</h1>
+        <h1 id="title">Sampling!</h1>
         <p th:text="|The time on the server is ${serverTime}.|">The time on the server is 2018/01/01 00:00:00 JST.</p>
-        <p th:object="${#authentication.principal.account}" th:text="|Welcome *{firstName} *{lastName} !! |"></p>
-
-            <!--/* (1) */-->
-        <form th:action="@{/logout}" method="post">
-            <button type="submit">Logout</button>
-        </form>
-        <ul>
-            <li><a th:href="@{/account}">view account</a></li>
-        </ul>
     </div>
     
-    
-    <a th:href="@{/(locale='en')}">English</a>  <!-- (1) -->
-	<a th:href="@{/(locale='ja')}">Japanese</a>
+
 	<span th:text="#{i.xx.yy.0001}"></span>
 	
-	<a th:href="@{/sampling}">sampling</a>
 </body>
 </html>

@@ -23,6 +23,8 @@ public class LoginController {
         return "login/loginForm";
     }
 	
+    
+    
 	
     @RequestMapping("/auth") // (1)
     public String login(@Validated LoginForm form, BindingResult result) {

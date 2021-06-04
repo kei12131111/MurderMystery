@@ -14,21 +14,18 @@
 </head>
 <body>
     <div class="container">
-    <!--/*/
         <div id="header" th:replace="~{layout/header :: header}"></div>
+
+
         <div id="body" th:replace="${body}"></div>
-    /*/-->
-    <!--/*-->
-        <h1>
-            <a href="../welcome/home.html">murdermystery</a>
-        </h1>
-        <div id="wrapper">
-            <h1 id="title">Hello world!</h1>
-            <p>The time on the server is 2018/01/01 00:00:00 JST.</p>
-        </div>
-    <!--*/-->
-        <hr>
-        <p style="text-align: center; background: #e5eCf9;">Copyright &copy; 20XX CompanyName</p>
+
+
+        <div id="footer" th:replace="~{layout/footer :: footer}"></div>        
+
+
     </div>
+    
+
+    
 </body>
 </html>
